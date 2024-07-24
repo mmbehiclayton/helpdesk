@@ -14,7 +14,7 @@
 
 ## Usage
 
-1. clone the project `git clone https://github.com/abdulbasit-dev/laravel-windmill-dashboard.git`
+1. clone the project `git clone https://github.com/mmbehiclayton/helpdesk.git`
 2. create a file with name .env `touch .env`
 3. copy content of .env.example to .env
 4. set up your database connection in .env
