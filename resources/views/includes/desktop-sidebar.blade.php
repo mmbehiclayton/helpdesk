@@ -7,7 +7,7 @@
                 class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
                 href="{{ route('admin.home')}}"
         >
-            Reports 
+            Reports App 
         </a>
         <ul class="mt-6">
             <li class="relative px-6 py-3">
@@ -46,7 +46,7 @@
                     @endif
                 <a
                         class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                        href="{{ route('admin.forms') }}"
+                        href="{{ route('reports.index') }}"
                 >
                     <svg
                             class="w-5 h-5"

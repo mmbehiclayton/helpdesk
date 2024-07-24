@@ -12,7 +12,8 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $reports = Report::with('user', 'recipients')->get();
+        // Fetch paginated reports with relationships
+        $reports = Report::with('user', 'recipients')->paginate(10);
         return view('reports.index', compact('reports'));
     }
 
