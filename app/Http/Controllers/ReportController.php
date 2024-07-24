@@ -12,8 +12,8 @@ class ReportController extends Controller
 {
     public function index()
     {
-        // Fetch paginated reports with relationships
-        $reports = Report::with('user', 'recipients')->paginate(10);
+        // Fetch paginated reports with relationships, ordered by creation time in descending order
+        $reports = Report::with('user', 'recipients')->orderBy('created_at', 'desc')->paginate(10);
         return view('reports.index', compact('reports'));
     }
 

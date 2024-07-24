@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Report;
 
 class HomeController extends Controller
 {
@@ -15,6 +16,13 @@ class HomeController extends Controller
      */
     public function __invoke()
     {
-        return view('admin.index');
+
+        // Fetch paginated reports with relationships, ordered by creation time in descending order
+        $reports = Report::with('user', 'recipients')->orderBy('created_at', 'desc')->paginate(10);
+
+        $pageData = [
+            'reports' => $reports,
+        ];
+        return view('admin.index', $pageData);
     }
 }
