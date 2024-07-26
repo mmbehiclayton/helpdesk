@@ -5,10 +5,10 @@
     <h2
         class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
     >
-        Dashboard
+        My Reports | Sent Reports
     </h2>
     <!-- CTA -->
-    <a class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple" href="{{ route('reports.create') }}">
+    <a class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-teal-100 bg-teal-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple" href="{{ route('reports.create') }}">
         <div class="flex items-center">
         <svg class="w-5 h-5 mr-2"
             fill="currentColor"
@@ -20,8 +20,8 @@
         </div>
         <span>Compose a Report &RightArrow;</span>
     </a>    
-    <!--Report Table Start-->
-    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+<!-- Report Table Start -->
+<div class="w-full overflow-hidden rounded-lg shadow-xs">
     <div class="w-full overflow-x-auto">
         <table class="w-full whitespace-no-wrap bg-white dark:bg-gray-800">
             <thead>
@@ -64,28 +64,21 @@
                     <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
                             <!-- View Button -->
-                            <a href="{{ route('reports.show', $report->id) }}" aria-label="View" class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-blue-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10 3.2C6.2 3.2 2.8 6.2 2.8 10s3.4 6.8 7.2 6.8 7.2-3.4 7.2-7.2-3.4-6.8-7.2-6.8zm0 12c-2.7 0-4.8-2.2-4.8-4.8S7.3 5.6 10 5.6s4.8 2.2 4.8 4.8-2.1 4.8-4.8 4.8z"/>
-                                    <path d="M10 7.2c-.7 0-1.4.3-1.8.8C7.3 8.4 7 9.2 7 10s.3 1.6.8 2.2c.5.5 1.2.8 2 .8 1.6 0 2.8-1.2 2.8-2.8S11.6 7.2 10 7.2z"/>
-                                </svg>
+                            <a href="{{ route('reports.show', $report->id) }}" aria-label="View" class="text-blue-600 hover:text-blue-800">
+                                View
                             </a>
                             
                             <!-- Edit Button -->
-                            <a href="{{ route('reports.edit', $report->id) }}" aria-label="Edit" class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
-                                </svg>
+                            <a href="{{ route('reports.edit', $report->id) }}" aria-label="Edit" class="text-purple-600 hover:text-purple-800">
+                                Edit
                             </a>
 
                             <!-- Delete Button -->
                             <form action="{{ route('reports.destroy', $report->id) }}" method="POST" class="inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" aria-label="Delete" class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-red-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                                    </svg>
+                                <button type="submit" aria-label="Delete" class="text-red-600 hover:text-red-800">
+                                    Delete
                                 </button>
                             </form>
                         </div>
@@ -96,10 +89,7 @@
         </table>
     </div>
 </div>
-
-
-
-    <!--End of Report Table-->
+<!-- End of Report Table -->
 
         <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
             <span class="flex items-center col-span-3">

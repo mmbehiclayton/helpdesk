@@ -22,6 +22,11 @@ Route::get('/', HomeController::class)->name('home')->middleware('auth');
 Route::resource('reports', ReportController::class)->middleware('auth');
 Route::post('reports/{report}/comments', [CommentController::class, 'store'])->name('comments.store');
 
+//rourte to pdf reports
+Route::get('/reports/{report}/pdf', [ReportController::class, 'generatePdf'])->name('reports.generatePdf');
+
+
+
 
 //dashboard routes
 Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard', 'as' => 'admin.'], function () {
