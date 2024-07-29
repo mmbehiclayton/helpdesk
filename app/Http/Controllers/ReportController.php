@@ -20,10 +20,8 @@ class ReportController extends Controller
 
     public function create()
     {
-        // Fetch all users
-        $users = User::all();
-        
-        // Pass the users to the view
+        $currentUserId = auth()->id();
+        $users = User::where('id', '!=', $currentUserId)->get();
         return view('reports.create', compact('users'));
     }
 

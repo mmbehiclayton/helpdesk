@@ -28,7 +28,9 @@
             <div class="mb-4">
                 <label class="block text-sm">
                     <span class="text-gray-700 dark:text-gray-400">Summary</span>
-                    <textarea name="summary" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 form-textarea" rows="3" placeholder="Enter summary" required></textarea>
+                    <div id="summary" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700" style="height: 300px;"></div>
+                    <textarea name="summary" style="display: none;"></textarea>
+
                 </label>
             </div>
             <div class="mb-4">
@@ -70,4 +72,34 @@
         </form>
     </div>
 </div>
+
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+
+
+<script>
+    var quill = new Quill('#summary', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'header': '1' }, { 'header': '2' }],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                ['bold', 'italic', 'underline'],
+                ['link', 'image']
+            ]
+        },
+        height: 300
+    });
+
+    // Optional: Handle form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+        var summary = document.querySelector('textarea[name="summary"]');
+        summary.value = quill.root.innerHTML;
+    });
+</script>
+
+
+
+
 @endsection

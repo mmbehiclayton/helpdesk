@@ -8,6 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f4f4f4;
         }
         .container {
             max-width: 800px;
@@ -16,11 +17,24 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            margin-bottom: 10px;
         }
         h2 {
             margin-bottom: 20px;
             font-size: 24px;
-            color: #333;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #ddd;
+            margin-bottom: 20px;
         }
         .section {
             margin-bottom: 20px;
@@ -28,27 +42,29 @@
         .section label {
             font-weight: bold;
             color: #555;
+            display: block;
+            margin-bottom: 5px;
         }
         .section p {
-            margin: 10px 0;
+            margin: 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             color: #333;
         }
-        .attachment {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-        }
-        .attachment a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .attachment a:hover {
-            text-decoration: underline;
+        .timestamp {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <h1>Al-Ameen Reporting App</h1>
+        <hr>
         <h2>Report Details</h2>
         <div class="section">
             <label>Category:</label>
@@ -60,17 +76,10 @@
         </div>
         <div class="section">
             <label>Summary:</label>
-            <p>{{ $report->summary }}</p>
+            <p>{{ strip_tags($report->summary) }}</p>
         </div>
-        <div class="section">
-            <label>Attachment:</label>
-            @if ($report->attachment)
-                <div class="attachment">
-                    <a href="{{ asset('storage/'.$report->attachment) }}" target="_blank">View Attachment</a>
-                </div>
-            @else
-                <p>No attachment</p>
-            @endif
+        <div class="timestamp">
+            Report downloaded on: {{ \Carbon\Carbon::now()->format('F j, Y, g:i a') }}
         </div>
     </div>
 </body>

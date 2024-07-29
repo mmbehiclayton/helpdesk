@@ -21,7 +21,7 @@
         <div class="mb-6">
             <label class="block text-sm">
                 <span class="text-lg font-medium text-gray-700 dark:text-gray-400">Summary</span>
-                <p class="block w-full mt-1 text-sm text-gray-900 dark:text-gray-100 dark:bg-gray-700 rounded-lg p-2">{{ $report->summary }}</p>
+                <p class="block w-full mt-1 text-sm text-gray-900 dark:text-gray-100 dark:bg-gray-700 rounded-lg p-2">{!! $report->summary !!}</p>
             </label>
         </div>
         <div class="mb-6">
